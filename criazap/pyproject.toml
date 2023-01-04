@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "criazap chat"
+version = "0.1.0"
+description = "app de mensagens criazap by gustavoreis, dudubarbaro e viniciusreis"
+authors = ["gustavorteuber dudubarbaro vinirteuber"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.5"
+django-admin = "^2.0.1"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^3.13.0"
+python-magic = "^0.4.27"
+pillow = "^9.4.0"
+djangorestframework-simplejwt = "^5.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
