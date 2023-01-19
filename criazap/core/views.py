@@ -1,10 +1,11 @@
 from rest_framework.permissions import AllowAny
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-from core.models import Usuario, Chats, Status
-from core.serializers import UsuarioSerializer, UsuarioCreateSerializer, ChatsSerializer,DetailChatsSerializer, StatusSerializer, DetailStatusSerializer
+from core.models import Usuario, Chats, Status,bot
+from core.serializers import UsuarioSerializer, UsuarioCreateSerializer, ChatsSerializer,DetailChatsSerializer, StatusSerializer, DetailStatusSerializer, botSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     
@@ -49,3 +50,10 @@ class ChatsViewSet(ModelViewSet):
         if self.action in ["list", "retrieve"]:
             return DetailChatsSerializer
         return ChatsSerializer
+
+class botViewSet(ModelViewSet):
+    queryset = bot.objects.all()
+    serializer_class = botSerializer 
+    permission_classes = [AllowAny]
+
+

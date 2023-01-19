@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SlugRelatedField
-from core.models import Usuario, Chats, Status
+from core.models import Usuario, Chats, Status, bot
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
 
@@ -102,3 +102,8 @@ class DetailStatusSerializer(ModelSerializer):
         model = Status
         fields = "__all__"
         depth = 1
+
+class botSerializer(ModelSerializer):
+    class Meta:
+        model = bot
+        fields = "__all__"

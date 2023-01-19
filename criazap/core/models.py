@@ -36,3 +36,9 @@ class Status(models.Model):
 
     def __str__(self):
         return self.status
+
+class bot(models.Model):
+    pergunta = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.pergunta

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'uploader',
+    'simple_chatbot',
     'core',
 
 ]
@@ -58,6 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'criazap.urls'
+
 
 TEMPLATES = [
     {
@@ -131,15 +133,15 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
+# REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
         
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-}
+#     ],
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     )
+# }
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -148,5 +150,20 @@ MEDIA_URL = "http://localhost:8000/media/"
 MEDIA_ENDPOINT = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 FILE_UPLOAD_PERMISSIONS = 0o640
+SIMPLE_CHATBOT = {
+    'responses': (
+        ("core.responses.GreetingResponse", "Greeting"),
+        ("core.responses.GoodbyeResponse", "Goodbye"),
+        ("core.responses.OneResponse", "Olá sou seu Corretor Virtual! para prosseguirmos, qual seu email?"),
+        ("core.responses.TwoResponse", "Procura um Imóvel pronto ou na planta?"),
+        ("core.responses.ThreeResponse", "O que é importante em um imóvel para você?"),
+        ("core.responses.FourResponse", "Em qual cidade ?"),
+        ("core.responses.FiveResponse", "Em qual região?"),
+        ("core.responses.SixResponse", "Em que bairro"),
+        ("core.responses.SevenResponse", "Está a quanto tempo procurando um imóvel?"),
+        ("core.responses.FinalResponse", "OK! Bora continuar essa mensagem no WhatsApp!"),
+    ),
+}
+
 
 AUTH_USER_MODEL = "core.Usuario"
