@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SlugRelatedField
-from core.models import Usuario, Chats, Status, bot
+from core.models import Usuario, Chats, Status, bot, Empreendimentos
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
 
@@ -107,3 +107,23 @@ class botSerializer(ModelSerializer):
     class Meta:
         model = bot
         fields = "__all__"
+
+class EmpreendimentosSerializer(ModelSerializer):
+    class Meta:
+        model = Empreendimentos
+        fields = "__all__"
+    foto_attachment_key = SlugRelatedField(
+        source="foto",
+        queryset=Image.objects.all(),
+        slug_field="attachment_key",
+        required=False,
+        write_only=True,
+    )
+    foto = ImageSerializer(required=False, read_only=True)
+
+class DetailEmpreendimentosSerializer(ModelSerializer):
+    class Meta:
+        model = Empreendimentos
+        fields = "__all__"
+        depth = 1
+

@@ -12,7 +12,11 @@ from core.views import (
     MyTokenObtainPairView,
     UsuarioViewSet,
     botViewSet,
+    EmpreendimentosViewSet
 )
+
+
+
 from uploader.router import router as uploader_router
 
 
@@ -22,6 +26,7 @@ router.register(r'chats', ChatsViewSet)
 router.register(r'status', StatusViewSet)
 router.register(r'usuario', UsuarioViewSet)
 router.register(r'bot', botViewSet)
+router.register(r'Empreendimentos', EmpreendimentosViewSet)
 
 
 urlpatterns = [

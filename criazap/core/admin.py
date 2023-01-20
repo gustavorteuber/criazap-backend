@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
-from core.models import Usuario, Status, Chats, bot
+from core.models import Usuario, Status, Chats, bot, Empreendimentos
 
 admin.site.register(Chats)
 admin.site.register(Status)
 admin.site.register(Usuario)
 admin.site.register(bot)
+admin.site.register(Empreendimentos)
 
 class UsuarioAdmin(UserAdmin):
     fieldsets = (

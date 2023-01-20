@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'uploader',
     'simple_chatbot',
     'core',
+    'chat',
 
 ]
 
